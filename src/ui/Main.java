@@ -3,6 +3,7 @@ package ui;
 import java.util.Calendar;
 import java.util.Scanner;
 import model.Controller;
+import java.text.SimpleDateFormat;
 
 public class Main{
 
@@ -94,14 +95,14 @@ public class Main{
 		clientName = reader.next();
 
 		initialDate = Calendar.getInstance();
-		String timeStamp = new simpleDateFormat("dd/MM/yyyy").format(initialDate.getTime());
+		String timeStamp = new SimpleDateFormat("dd/MM/yyyy").format(initialDate.getTime());
 		System.out.println("The start Date is: "+timeStamp);
 
 		System.out.println("type in months how long the project will last  ");
 		month = reader.nextInt();
 		finalDate = Calendar.getInstance();
 		finalDate.add(Calendar.MONTH,month);
-		String timeStamp2 = new simpleDateFormat("dd/MM/yyyy").format(finalDate.getTime());
+		String timeStamp2 = new SimpleDateFormat("dd/MM/yyyy").format(finalDate.getTime());
 		System.out.println("The start Date is: "+timeStamp2);
 
 		System.out.println("type the project budget");

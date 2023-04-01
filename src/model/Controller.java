@@ -16,9 +16,9 @@ public class Controller {
 	
 	
 	//Incomplete
-	public void RegisterProject(String name, String clientName, Calentar initialDate, Calendar finalDate, double budget) {
+	public void RegisterProject(String name, String clientName, Calendar initialDate, Calendar finalDate, double budget) {
 
-		Project project = new project(name,clientName, initialDate,finalDate, budget);
+		Project project = new Project(name,clientName, initialDate,finalDate, budget);
         int pos = getFirstValidPosition();
         if(pos !=-1){
            projects[pos] = project;
@@ -47,11 +47,11 @@ public class Controller {
 		for(int i = 0; i<SIZE && !isFound; i++){
 			if(projects[i].getName().equalsIgnoreCase(nameProject)){
 				isFound = true;
-                System.out.println("La fecha final del proyecto es: "+projects[i].getFinalDateFormated());
+                System.out.println("The end date of the project is: "+projects[i].getFinalDateFormated());
                
 			}else {
 				isFound = true;
-				System.out.println("El proyecto no ha sido encontrado");
+				System.out.println("Project not foundo");
 			}
 		}
 		
@@ -68,10 +68,10 @@ public class Controller {
 			if(projects[i].getName().equalsIgnoreCase(nameProject)){
 				isFound = true;
 				
-                System.out.println("La fecha incial del proyecto es: "+projects[i].getInitialDateFormated());
+                System.out.println("the project start date is: "+projects[i].getInitialDateFormated());
 			}else{
                 isFound = true;
-                System.out.println("El proyecto no ha sido encontrado");
+                System.out.println("Project not found");
 			}
 		}
 	}
