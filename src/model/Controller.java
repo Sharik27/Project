@@ -6,36 +6,73 @@ import java.util.GregorianCalendar;
 public class Controller {
 
 	private Project[] projects;
+	private static final int SIZE = 10;
 
 	public Controller() {
 
-		projects = new Project[10];
+		projects = new Project[SIZE];
 	
 	}
+	
 	
 	//Incomplete
-	public boolean RegisterProject() {
+	public void RegisterProject(String name, String clientName, Calentar initialDate, Calendar finalDate, double budget) {
 
-		return false;
+		Project project = new project(name,clientName, initialDate,finalDate, budget);
+        int pos = getFirstValidPosition();
+        if(pos !=-1){
+           projects[pos] = project;
+        }
+		
 	}
+
+	public int getFirstValidPosition(){
+        int pos = -1;
+        boolean isFound = false; 
+        for(int i = 0; i< SIZE && !isFound; i++){
+            if(projects[i] == null){
+                pos = i;
+                isFound = true;
+            }
+        }
+        return pos;
+    }
 
 	//Incomplete
 	// Date class also has their own before() and after() method
-	public String searchProjectsAfterDate() {
+	public void searchProjectsAfterDate(String nameProject) {
 
-		String msg = "";
+		boolean isFound= false;
 
-		return msg;
+		for(int i = 0; i<SIZE && !isFound; i++){
+			if(projects[i].getName().equalsIgnoreCase(nameProject)){
+				isFound = true;
+                System.out.println("La fecha final del proyecto es: "+projects[i].getFinalDateFormated());
+               
+			}else {
+				isFound = true;
+				System.out.println("El proyecto no ha sido encontrado");
+			}
+		}
+		
 
 	}
 	
 	//Incomplete
 	// Date class also has their own before() and after() method
-	public String searchProjectsBeforeDate() {
+	public void searchProjectsBeforeDate(String nameProject){
 
-		String msg = "";
+		boolean isFound= false;
 
-		return msg;
-
+		for(int i = 0; i<SIZE && !isFound; i++){
+			if(projects[i].getName().equalsIgnoreCase(nameProject)){
+				isFound = true;
+				
+                System.out.println("La fecha incial del proyecto es: "+projects[i].getInitialDateFormated());
+			}else{
+                isFound = true;
+                System.out.println("El proyecto no ha sido encontrado");
+			}
+		}
 	}
 }
